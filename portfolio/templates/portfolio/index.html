@@ -6,6 +6,9 @@
     <body>
         {% load static %}
         <h1>Charles Portfolio</h1>
+        <br>
+        <a href="{% static 'portfolio/CharlesResume.pdf' %}">My Resume</a>
+        <a href="{% url 'blog:all_blogs' %}">My Blogs</a>
         <img src="{% static 'portfolio/SnapPic.jpg' %}">
         <p>{% for project in projects %}
             

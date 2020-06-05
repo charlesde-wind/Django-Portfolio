@@ -3,13 +3,17 @@
         <title>>All BLOGS</title>
     </head>
     <body>
+        <h2>So far {{owner}} has written {{noofblogs}} blog</h2>
         {% for blogs in blogobjects %}
-        <h1>{{blogs.blog_name}}</h1>
+        <a href="{% url 'blog:detail' blogs.id %}"><h3>{{blogs.blog_name}}</h3></a>
         
-        {{blogs.blog_date}}
+        {{blogs.blog_date|date:"M d, Y"}}
         {% if blogs.blog_author %}
         <br>
         <h3>{{blogs.blog_author}}</h3>
+        <p>
+            {{blogs.blog_description|truncatechars:100}}
+        </p>
         {% endif %}
         {% endfor %}
     </body>
