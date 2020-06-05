@@ -1,0 +1,16 @@
+<html>
+    <head>
+        <title>>All BLOGS</title>
+    </head>
+    <body>
+        {% for blogs in blogobjects %}
+        <h1>{{blogs.blog_name}}</h1>
+        
+        {{blogs.blog_date}}
+        {% if blogs.blog_author %}
+        <br>
+        <h3>{{blogs.blog_author}}</h3>
+        {% endif %}
+        {% endfor %}
+    </body>
+</html>    

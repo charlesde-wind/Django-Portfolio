@@ -4,15 +4,17 @@
         <title>Portfolio - Home</title>
     </head>
     <body>
+        {% load static %}
         <h1>Charles Portfolio</h1>
+        <img src="{% static 'portfolio/SnapPic.jpg' %}">
         <p>{% for project in projects %}
             
             <h1>{{project.title}}</h1> 
             <br>
             <p>{{project.description}}</p>
             
-            {% if project.urls %}
             <img src="{{project.image.url}}">
+            {% if project.urls %}
             <a href="{{project.urls}}">LINK</a>
 
             {% endif %} 
