@@ -8,4 +8,5 @@ class Blog(models.Model):
     blog_date = models.DateField()
     blog_description = models.CharField(max_length=500)
 
-    
+    def __str__(self):
+        return self.blog_name

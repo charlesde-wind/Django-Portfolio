@@ -1,7 +1,17 @@
-<h3>{{blog.blog_name}}</h3>
+{% extends 'portfolio/base.html' %}
+  
+{% block webname %}
+<title>My Blog</title>
+{% endblock webname %}
 
-<h4>{{blog.blog_date}}</h4>
+{% block content %}
+
+<h3>{{blog.blog_name|title}}</h3>
+
+<h4>--{{blog.blog_date|date:"M jS Y"}}--</h4>
 
 <h6>{{blog.blog_author}}</h6>
 
-<p>{{blog.blog_description}}<p>
+<p>{{blog.blog_description|safe }}<p>
+
+{% endblock content %}
