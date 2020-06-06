@@ -5,20 +5,30 @@
 {% endblock webname %}
 
 {% block content %}
-<h2>So far {{owner}} has written {{noofblogs}} blog</h2>
-        {% for blogs in blogobjects %}
-        <a href="{% url 'blog:detail' blogs.id %}"><h3>{{blogs.blog_name|title}}</h3></a>
-    
-        {{blogs.blog_date|date:"M j, Y"|upper}}
-        {% if blogs.blog_author %}
-        <br>
-        <h3>{{blogs.blog_author}}</h3>
-        {% endif %}
-        <p>
-            {{blogs.blog_description|truncatechars:100}}
-        </p>
-        {% endfor %}
- 
+<div class="p-3 mb-2 bg-secondary text-white">
+    <h2>So far {{owner}} has written {{noofblogs}} blog{{noofblogs|pluralize}}</h2>
+            <br>
+            <h2 style="text-decoration: underline">Blog Posts</h2>
+            <br>
+            <br>
+
+            <div class="text-left">
+                {% for blogs in blogobjects %}
+                <a href="{% url 'blog:detail' blogs.id %}"><h3 class="text-info"><b>{{blogs.blog_name|title}}</b></h3></a>
+            
+                {{blogs.blog_date|date:"M j, Y"|upper}}
+                {% if blogs.blog_author %}
+                <h6 style="font-size: 15px">By: {{blogs.blog_author}}</h6>
+                {% endif %}
+                <p>
+                    {{blogs.blog_description|truncatechars:100}}
+                </p>
+
+                <br>
+                <br>
+                {% endfor %}
+            </div>
+</div>
 
 {% endblock content %}
         
